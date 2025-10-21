@@ -1,6 +1,6 @@
 # Identicon
 
-**TODO: Add description**
+Creates an identicon of 250x250px
 
 ## Installation
 
