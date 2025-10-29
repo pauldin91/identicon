@@ -50,12 +50,12 @@ defmodule Identicon do
       image
       | grid:
           hex
-          |> Enum.chunk_every(size)
-          |> Enum.take_while(fn list -> length(list) == size end)
+          |> Stream.chunk_every(size)
+          |> Stream.take_while(fn list -> length(list) == size end)
           |> Enum.map(fn list -> list ++ tl(Enum.reverse(list)) end)
           |> List.flatten()
-          |> Enum.with_index()
-          |> Enum.filter(fn {num, _} -> rem(num, 2) == 0 end)
+          |> Stream.with_index()
+          |> Stream.filter(fn {num, _} -> rem(num, 2) == 0 end)
           |> Enum.map(fn {_, index} ->
             h = rem(index, 5) * 50
             v = div(index, 5) * 50
